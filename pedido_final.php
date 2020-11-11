@@ -1,19 +1,18 @@
 <?php
     session_start();
     require_once('conection.php');
-    $nome = $_POST['nome'];
-    $end = $_POST['end'];
-    $tel = $_POST['tel'];
-    $prod = $_POST['prod'];
-    $qtd = $_POST['qtd'];
+    $_SESSION['nome'] = $_POST['nome'];
+    $_SESSION['end'] = $_POST['end'];
+    $_SESSION['tel'] = $_POST['tel'];
+    $_SESSION['prod'] = $_POST['prod'];
+    $_SESSION['qtd'] = $_POST['qtd'];
 
-    $sql = "select preco, preco_venda from produtos where descricao = '$prod'";
+    $sql = "select preco, preco_venda from produtos where descricao = '{$_SESSION['prod']}'";
     $result = $conn->query($sql);
     $rows = $result->fetch_assoc();
     
-    $preco = $rows['preco_venda'];
-    $total = ($preco * $qtd);
-    //print_r($_SESSION);
+    $_SESSION['preco'] = $rows['preco_venda'];
+    $_SESSION['total'] = ($_SESSION['preco'] * $_SESSION['qtd']);
 ?>
 
 <!DOCTYPE html>
@@ -33,37 +32,37 @@
                 <div class="form-row">
                     <div class="col-lg-6 mb-3">
                         <label for="disabledTextInput">Nome</label>
-                        <input name="nome" type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $nome; ?>" value="<?php echo $nome; ?>">
+                        <input name="nome" type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $_SESSION['nome']; ?>" value="<?php echo $_SESSION['nome']; ?>">
                     </div>
                     <div class="col-lg-6 mb-3">
                         <label for="disabledTextInput">Telefone</label>
-                        <input name="tel" type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $tel; ?>" value="<?php echo $tel; ?>">
+                        <input name="tel" type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $_SESSION['tel']; ?>" value="<?php echo $_SESSION['tel']; ?>">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-12 mb-3">
                         <label for="disabledTextInput">Endereço</label>
-                        <input name="end" type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $end; ?>" value="<?php echo $end; ?>">
+                        <input name="end" type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $_SESSION['end']; ?>" value="<?php echo $_SESSION['end']; ?>">
                 </div>
                 </div>
                 <div class="form-row">
                     <div class="col-lg-6 mb-3">
                         <label for="disabledTextInput">Produto</label>
-                        <input name="prod" type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $prod; ?>" value="<?php echo $prod; ?>">
+                        <input name="prod" type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $_SESSION['prod']; ?>" value="<?php echo $_SESSION['prod']; ?>">
                     </div>
                     <div class="col-lg-6 mb-3">
                         <label for="disabledTextInput">Quantidade</label>
-                        <input name="qtd" type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $qtd; ?>" value="<?php echo $qtd; ?>">
+                        <input name="qtd" type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $_SESSION['qtd']; ?>" value="<?php echo $_SESSION['qtd']; ?>">
                     </div>    
                 </div>
                 <div class="form-row">
                     <div class="col-lg-6 mb-3">
                         <label for="disabledTextInput">Valor unitário</label>
-                        <input nome="v_unit" type="text" id="disabledTextInput" class="form-control" placeholder="R$ <?php echo $preco; ?>" value="<?php echo $preco; ?>">
+                        <input nome="v_unit" type="text" id="disabledTextInput" class="form-control" placeholder="R$ <?php echo $_SESSION['preco']; ?>" value="<?php echo $_SESSION['preco']; ?>">
                     </div>
                     <div class="col-lg-6 mb-3">
                         <label for="disabledTextInput">Valor total</label>
-                        <input nome="v_total" type="text" id="disabledTextInput" class="form-control" placeholder="R$ <?php echo $total; ?>" value="<?php echo $total; ?>">
+                        <input nome="v_total" type="text" id="disabledTextInput" class="form-control" placeholder="R$ <?php echo $_SESSION['total']; ?>" value="<?php echo $_SESSION['total']; ?>">
                     </div>    
                 </div>
             </fieldset>
