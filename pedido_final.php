@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once('conection.php');
+    require_once('./servidor/conection.php');
     $_SESSION['nome'] = $_POST['nome'];
     $_SESSION['end'] = $_POST['end'];
     $_SESSION['tel'] = $_POST['tel'];
@@ -27,7 +27,7 @@
     
         <main class="container-fluid mt-1">
         <h2 class="text-center m-1">Detalhes do pedido</h2>
-        <form method="post" action="pedidoconfirm.php">
+        <form method="post" action="./servidor/pedidoconfirm.php">
             <fieldset disabled>
                 <div class="form-row">
                     <div class="col-lg-6 mb-3">

@@ -1,5 +1,5 @@
 <?php
-    require_once('conection.php');
+    require_once('../servidor/conection.php');
 
     if (isset($_POST['nome']) && isset($_POST['msg'])){
         $nome = $_POST['nome'];
@@ -8,5 +8,5 @@
         $sql = "insert into comentarios (nome, msg) values ('$nome', '$msg')";
         $result = $conn->query($sql);
         echo"<script>alert('Mensagem enviada com sucesso')
-                location.href = 'contato.php'</script>";
+                location.href = '../contato.php'</script>";
     }

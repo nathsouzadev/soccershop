@@ -1,5 +1,5 @@
 <?php
-    require_once('conection.php')
+    require_once('./servidor/conection.php')
 ?>
 
 <!DOCTYPE html>

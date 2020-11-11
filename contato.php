@@ -1,5 +1,5 @@
 <?php
-    require_once('conection.php')
+    require_once('./servidor/conection.php')
 ?>
 <!DOCTYPE html>
 <html lang="pr-br">
@@ -34,7 +34,7 @@
            
         <div class="row justify-content-center mt-1">
             <h2>Fale conosco</h2>
-            <form method="post" action="sentmsg.php" class="col-12">
+            <form method="post" action="./servidor/sentmsg.php" class="col-12">
                 <div class="form-group">
                     <label for="nome">Nome</label>
                     <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome" required>

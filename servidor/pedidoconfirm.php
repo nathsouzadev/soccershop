@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require_once('conection.php');
-    require_once('head.html');
+    require_once('../servidor/conection.php');
+    require_once('../head.html');
 
     if(isset($_SESSION['nome'])) {
         $sql = "insert into pedidos (nome, endereco, telefone, produto, valor_unitario, quantidade, valor_total) 
@@ -10,6 +10,6 @@
         $result = $conn->query($sql);
         session_destroy();
         echo "<script>alert('Pedido finalizado')
-             location.href ='index.php'</script>";
+             location.href ='../index.php'</script>";
     }
     
