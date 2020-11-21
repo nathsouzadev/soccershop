@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once('../servidor/conection.php');
+    require_once('../servidor/Connection.php');
     require_once('../head.html');
 
     if(isset($_SESSION['nome'])) {

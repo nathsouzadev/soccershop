@@ -1,15 +1,18 @@
 <?php
     session_start();
-    require_once('./servidor/conection.php');
+    require_once('./backend/Connection.php');
+    $conn = new Connection;
     $_SESSION['nome'] = $_POST['nome'];
     $_SESSION['end'] = $_POST['end'];
     $_SESSION['tel'] = $_POST['tel'];
     $_SESSION['prod'] = $_POST['prod'];
     $_SESSION['qtd'] = $_POST['qtd'];
 
+    /*
     $sql = "select preco, preco_venda from produtos where descricao = '{$_SESSION['prod']}'";
     $result = $conn->query($sql);
     $rows = $result->fetch_assoc();
+    */
     
     $_SESSION['preco'] = $rows['preco_venda'];
     $_SESSION['total'] = ($_SESSION['preco'] * $_SESSION['qtd']);

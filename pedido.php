@@ -1,7 +1,3 @@
-<?php
-    require_once('./servidor/conection.php')
-?>
-
 <!DOCTYPE html>
 <html lang="pr-br">
 <head>
@@ -35,12 +31,12 @@
                 <select name="prod" class="custom-select" id="validationTooltip04" required>
                 <option selected disabled value="">Escolha o produto</option>
                     <?php
-                        $sql = "select descricao from produtos";
-                        $result = $conn->query($sql);
-                        while ($rows = $result->fetch_assoc()) {
+                        $data_json = file_get_contents('http://localhost/soccershop/backend/apisoccer.php?table=produtos');
+                        $data = json_decode($data_json, true);
+                        foreach ($data as $key => $rows) {
                     ?>
                     
-                        <option value="<?php echo $rows['descricao'] ?>"><?php echo $rows['descricao'] ?></option>"
+                        <option value="<?php echo $rows[0]['descricao'] ?>"><?php echo $rows[0]['descricao'] ?></option>"
                     
                     <?php
                         }

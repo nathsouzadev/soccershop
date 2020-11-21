@@ -1,13 +1,10 @@
-<?php
-    require_once('./servidor/conection.php')
-?>
 <!DOCTYPE html>
 <html lang="pr-br">
 <head>
     <?php require_once('head.html') ?>
 </head>
-<body class="container-sm">
-    <header class="mt-3">
+<body class="container-fluid">
+    <header>
         <?php require('navbar.html') ?>
     </header>
     
@@ -34,10 +31,10 @@
            
         <div class="row justify-content-center mt-1">
             <h2>Fale conosco</h2>
-            <form method="post" action="./servidor/sentmsg.php" class="col-12">
+            <form method="post" action="./backend/sentmsg.php" class="col-12">
                 <div class="form-group">
                     <label for="nome">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome" required>
+                    <input type="text" class="form-control" id="nome" name="name" placeholder="Digite seu nome" required>
                 </div>
                 <div class="form-group">
                     <label for="msg">Mensagem</label>
@@ -49,27 +46,23 @@
 
         <div class="mt-1">
             <?php
-                    $sql = "select * from comentarios";
-                    $result = $conn->query($sql);
-                    if ($result->num_rows > 0) {
-                        while ($rows = $result->fetch_assoc()) {
+                
+                $data_json = file_get_contents('http://localhost/soccershop/backend/apisoccer.php?table=comentarios');
+                $data = json_decode($data_json, true);
+                foreach ($data as $key => $rows){
 
             ?>
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo $rows['nome'] ?></h5>
-                        <p class="card-text"><?php echo $rows['msg'] ?></p>
-                        <p class="card-text"><small class="text-muted"><?php echo $rows['data'] ?></small></p>
+                        <h5 class="card-title"><?php echo $rows[0]['nome'] ?></h5>
+                        <p class="card-text"><?php echo $rows[0]['msg'] ?></p>
+                        <p class="card-text"><small class="text-muted"><?php echo $rows[0]['data'] ?></small></p>
                     </div>
                 </div>
 
             <?php
                             }
-                    }
-                    else {
-                        echo"Não há comentários";
-                    }
             ?>
             
         </div>
