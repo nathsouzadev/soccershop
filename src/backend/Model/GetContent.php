@@ -13,13 +13,13 @@ class Content extends Connection
         $stmt = $conn->prepare("SELECT * FROM {$table}");
         $stmt->execute();
         while($row = $stmt->fetch(PDO::FETCH_OBJ)){
-            $json[$i]= [
+            $json[$i]= 
                 $row
-            ];
+            ;
             $i++;
         }
 
-        header('Access-Control-Allow-Origin:*');
+        header('Access-Control-Allow-Origin: *');
         header('Content-type: application/json');
         echo json_encode($json);
     }
