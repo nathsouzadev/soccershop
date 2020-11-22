@@ -32,7 +32,7 @@ class ShowProducts extends React.Component {
             {this.props.array.map(
                 row=>
                 <div className="card col-sm-12 col-md-6 col-lg-3 border-light box-item" id={row.id_prod}>
-                    <img src={row.imagem} className="card-img-top img-thumbnail" alt={row.descricao} id="image" onmouseover="overItem(this)"/>
+                    <img src={row.imagem} className="card-img-top img-thumbnail" alt={row.descricao} />
                     <div class="card-body">
                         <h5 className="card-title">{row.descricao}</h5>
                         <p className="card-text text-danger"><strike>R$ {row.preco}</strike></p>

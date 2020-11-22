@@ -1,9 +1,10 @@
 import React from 'react';
+import notfound from '../assets/error404_min.jpg';
 
 export default class NotFound extends React.Component {
     render() {
         return (
-            <h1 className="text-center text-danger">Not Found</h1>
-        )
+        <img className="img-fluid" src={notfound}/>
+        );
     }
 }
