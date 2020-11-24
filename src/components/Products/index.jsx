@@ -12,7 +12,6 @@ export default class Products extends React.Component {
                             <button className="col-sm-12 btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Categorias
                             </button>
-                            <SelectItems/>
                             <div className="dropdown-menu col-sm-12" aria-labelledby="dropdownMenu2">
                                 <ul className="list-group">
                                     <button className="dropdown-item list-group-item d-flex justify-content-between align-items-center"

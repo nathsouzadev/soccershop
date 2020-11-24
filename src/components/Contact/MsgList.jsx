@@ -31,7 +31,7 @@ class ShowMsg extends React.Component {
             <>
             {this.props.array.map(
                 row=>
-                <div className="card">
+                <div className="card msg">
                     <div className="card-body">
                         <h5 className="card-title">{row.nome}</h5>
                         <p className="card-text">{row.msg}</p>

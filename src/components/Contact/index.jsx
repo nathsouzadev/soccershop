@@ -1,9 +1,13 @@
-import React from 'react';
-import MsgList from './MsgList'
+import React, { useState } from 'react';
+import MsgList from './MsgList';
+import API from './APImsg';
 
 
 export default class Contact extends React.Component {
-    render() {
+    
+    
+    
+    render(){     
         return (
             <>
                 <main className="container mt-1">
@@ -29,16 +33,16 @@ export default class Contact extends React.Component {
 
                     <div className="row justify-content-center mt-1">
                         <h2>Fale conosco</h2>
-                        <form method="post" action="./soccershop/src/backend/sentmsg.php" class="col-12">
+                        <form className="col-12">
                             <div className="form-group">
                                 <label for="nome">Nome</label>
-                                <input type="text" className="form-control" id="nome" name="name" placeholder="Digite seu nome" required/>
+                                <input type="text" className="form-control" id="nome" name="name" placeholder="Digite seu nome"/>
                             </div>
                             <div className="form-group">
                                 <label for="msg">Mensagem</label>
-                                <textarea className="form-control" id="msg" rows="3" name="msg" placeholder="Digite sua mensagem aqui" required> </textarea>
+                                <textarea className="form-control" id="msg" rows="3" name="msg" placeholder="Digite sua mensagem aqui"> </textarea>
                             </div>
-                            <button type="submit" className="btn btn-primary col-xl-12"><img src="./images/sent.svg"/> Enviar</button>
+                            <button className="btn btn-primary col-xl-12"><img src="./images/sent.svg"/> Enviar</button>
                         </form>
                     </div>
 

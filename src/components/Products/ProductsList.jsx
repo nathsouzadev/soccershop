@@ -10,14 +10,22 @@ export default class ProductsList extends React.Component {
         this.showProducts();
     }
 
-    showProducts() {
+    /*showProducts() {
         fetch('http://localhost/soccershop/src/backend/apisoccer.php?table=produtos')
         .then((res) => res.json())
         .then((resJson) => {
             this.setState({ data: resJson});
         })
+    }*/
+
+    async showProducts () {
+        
+        const res = await fetch('http://localhost/soccershop/src/backend/apisoccer.php?table=produtos');
+        const resJson = await res.json();
+        this.setState({ data: resJson})
     }
 
+    
     render() {
         return(
             <ShowProducts array={this.state.data}/>
@@ -31,7 +39,7 @@ class ShowProducts extends React.Component {
             <>
             {this.props.array.map(
                 row=>
-                <div className="card col-sm-12 col-md-6 col-lg-3 border-light box-item" id={row.id_prod}>
+                <div className="card col-sm-12 col-md-6 col-lg-3 border-light box-item" id={row.categoria}>
                     <img src={row.imagem} className="card-img-top img-thumbnail" alt={row.descricao} />
                     <div class="card-body">
                         <h5 className="card-title">{row.descricao}</h5>

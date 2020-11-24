@@ -28,8 +28,5 @@ class Msg extends Connection
         $stmt->bindParam(1, $name);
         $stmt->bindParam(2, $msg);
         $stmt->execute();
-        echo"<script>alert('Mensagem enviada com sucesso')
-                location.href = '../contato.php'</script>";
-        
     }
 }

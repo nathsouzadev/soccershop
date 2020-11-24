@@ -17,7 +17,7 @@ export default class Header extends React.Component {
                             alt="Soccershop"
                             loading="lazy"
                             />
-                            SoccerShop
+                            <span className="ml-1 text-light">SoccerShop</span>
                         </Link>
                         <button
                             className="navbar-toggler"

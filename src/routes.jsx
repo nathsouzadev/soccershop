@@ -12,7 +12,7 @@ export default function MainRoutes(){
             <Route path="/" element={<HomePage/>}/>
             <Route path="/produtos" element={<Products/>}/>
             <Route path="/nossaslojas" element={<Stores/>}/>
-            <Route path="/Contato" element={<ContactPage/>}/>
+            <Route path="/contato" element={<ContactPage/>}/>
             <Route path="*" element={<NotFound/>}/>
         </Routes>
     );
