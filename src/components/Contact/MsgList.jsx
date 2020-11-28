@@ -1,45 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default class MsgList extends React.Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = ({
-            data: []
-        });
-        this.showMsg();
-    }
+const MsgList = () => {
+    const [msg, setMsg] = useState([]);
 
-    showMsg() {
-        fetch('http://localhost/soccershop/src/backend/apisoccer.php?table=comentarios')
-        .then((res) => res.json())
-        .then((resJson) => {
-            this.setState({ data: resJson});
-        })
-    }
+    useEffect(async() => {
+        const url = "http://localhost/soccershop/backend/apisoccer.php?table=comentarios";
+        const res = await fetch(url);
+        setMsg(await res.json());
+    }, [])
 
-    render() {
-        return(
-            <ShowMsg array={this.state.data}/>
-        );
-    }
-}
 
-class ShowMsg extends React.Component {
-    render() {
-        return(
-            <>
-            {this.props.array.map(
-                row=>
-                <div className="card msg">
-                    <div className="card-body">
-                        <h5 className="card-title">{row.nome}</h5>
-                        <p className="card-text">{row.msg}</p>
-                        <p className="card-text"><small class="text-muted">{row.data}</small></p>
+    return(
+        <>
+            {   msg.map(row =>{
+                return(
+                    <div key={row.id_coment} className="card msg">
+                        <div className="card-body">
+                            <h5 className="card-title">{row.nome}</h5>
+                            <p className="card-text">{row.msg}</p>
+                            <p className="card-text"><small class="text-muted">{row.data}</small></p>
+                        </div>
                     </div>
-                </div>
-            )}
-            </>
-        );
-    }
+                    )
+                })
+            }
+        </>
+    )
 }
+
+export default MsgList;

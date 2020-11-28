@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MsgList from './MsgList';
-import API from './APImsg';
+
 
 
 export default class Contact extends React.Component {
