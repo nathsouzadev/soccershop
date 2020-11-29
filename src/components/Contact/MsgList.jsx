@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 const MsgList = () => {
     const [msg, setMsg] = useState([]);
 
-    useEffect(async() => {
-        const url = "http://localhost/soccershop/backend/apisoccer.php?table=comentarios";
+    useEffect(async () => {
+        const url = "http://localhost/soccershop/backend/apisoccer_msg.php";
         const res = await fetch(url);
         setMsg(await res.json());
     }, [])
@@ -14,11 +14,11 @@ const MsgList = () => {
         <>
             {   msg.map(row =>{
                 return(
-                    <div key={row.id_coment} className="card msg">
+                    <div key={row.id_comment} className="card msg">
                         <div className="card-body">
-                            <h5 className="card-title">{row.nome}</h5>
+                            <h5 className="card-title">{row.name_msg}</h5>
                             <p className="card-text">{row.msg}</p>
-                            <p className="card-text"><small class="text-muted">{row.data}</small></p>
+                            <p className="card-text"><small class="text-muted">{row.date}</small></p>
                         </div>
                     </div>
                     )

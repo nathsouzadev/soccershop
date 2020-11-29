@@ -2,14 +2,12 @@
 
 require_once ("./Connection.php");
 
-class Msg extends Connection
+class Category extends Connection
 {
     private $name;
-    private $msg;
 
-    public function Message($name, $msg){
+    public function Message($name){
         $this->name = $name;
-        $this->msg = $msg;
     }
     
 
@@ -18,7 +16,7 @@ class Msg extends Connection
         $conn = Connection::getDb();
         $i = 0;
 
-        $stmt = $conn->prepare("SELECT * FROM comments");
+        $stmt = $conn->prepare("SELECT * FROM categorys");
         $stmt-> execute();
         while($row = $stmt->fetch(PDO::FETCH_OBJ)){
             $json[$i]= 
@@ -32,12 +30,11 @@ class Msg extends Connection
         echo json_encode($json);
     }
 
-    public static function newMsg($name, $msg)
+    public static function newCategory($name)
     {
         $conn = Connection::getDb();
-        $stmt = $conn->prepare("INSERT INTO comments(name_msg, msg) VALUES (?, ?)");
+        $stmt = $conn->prepare("INSERT INTO comentarios(name_category) VALUES (?)");
         $stmt->bindParam(1, $name);
-        $stmt->bindParam(2, $msg);
         $stmt->execute();
     }
 }
