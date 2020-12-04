@@ -1,10 +1,10 @@
 import React from 'react';
 import Contact from '../components/Contact/index'
 
-export default class ContactPage extends React.Component {
-    render(){
+const ContatcPage = () => {
         return (
             <Contact/>
         );
-    }
 }
+
+export default ContatcPage;

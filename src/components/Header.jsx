@@ -2,8 +2,7 @@ import React from 'react';
 import logo from '../assets/favicon_soccershop.png';
 import { Link } from 'react-router-dom';
 
-export default class Header extends React.Component {
-    render() {
+const Header = () => {
         return (
             <>
              <header>
@@ -47,5 +46,6 @@ export default class Header extends React.Component {
              </header>
             </>
         );
-    }
 }
+
+export default Header;

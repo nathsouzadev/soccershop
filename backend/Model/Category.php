@@ -6,7 +6,7 @@ class Category extends Connection
 {
     private $name;
 
-    public function Message($name){
+    public function Category($name){
         $this->name = $name;
     }
     

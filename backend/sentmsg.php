@@ -1,9 +1,18 @@
 <?php
-    require_once('./Model/Msg.php');
 
-    if (isset($_POST['name']) && isset($_POST['msg'])){
-        $name = $_POST['name'];
-        $msg = $_POST['msg'];
+require_once('./Model/Msg.php');
 
-        $msg = Msg::newMsg($name, $msg);
-    }
+$name = $_POST['name'];
+$msg = $_POST['msg'];
+$message = new Msg($name, $msg);
+
+$validate = $message->sentMsg(); 
+
+header('Access-Control-Allow-Origin: *');
+header('Content-type: application/json');
+
+if ($validate ){
+    echo json_encode(true);
+} else {
+    echo json_encode(false);
+}

@@ -1,11 +1,10 @@
 import React from 'react';
 
-export default class Stores extends React.Component {
-    render() {
+const Stores = () => {
         return (
             <>
                 <header className="col-12 text-left mt-3">
-                    <h2>Nossas lojas</h2>
+                    <h2 className="text-light">Nossas lojas</h2>
                     <hr/>
                 </header>
                 <main className="container">
@@ -42,5 +41,6 @@ export default class Stores extends React.Component {
                 </main>
             </>
         );
-    }
 }
+
+export default Stores;

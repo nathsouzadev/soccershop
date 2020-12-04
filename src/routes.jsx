@@ -6,7 +6,7 @@ import Stores from './Views/nossaslojas';
 import ContactPage from './Views/contato';
 import NotFound from './Views/notfound'
 
-export default function MainRoutes(){
+const MainRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<HomePage/>}/>
@@ -17,3 +17,5 @@ export default function MainRoutes(){
         </Routes>
     );
 }
+
+export default MainRoutes;

@@ -1,8 +1,7 @@
 import React from 'react';
 import payment from '../assets/payment.jpeg';
 
-export default class Footer extends React.Component{
-    render(){
+const Footer = () => {
         return(
             <>
                 <div className="media mt-1">
@@ -14,5 +13,6 @@ export default class Footer extends React.Component{
                 </div> 
             </>
         );
-    }
 }
+
+export default Footer;

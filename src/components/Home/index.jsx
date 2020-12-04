@@ -1,7 +1,6 @@
 import React from 'react';
 
-export default class Home extends React.Component {
-    render() {
+const Home = () => {
         return (
             <>
                 <main className="container-fluid mt-1">
@@ -12,5 +11,6 @@ export default class Home extends React.Component {
                 </main>
             </>
         );
-    }
 }
+
+export default Home;

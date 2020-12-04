@@ -4,12 +4,12 @@ import API from './API_Products';
 const SelectItems = () =>{
     const [categorys, setCategorys] = useState([]);
 
-    useEffect(async() => {
+    useEffect(async () => {
         const res = await fetch(API);
         setCategorys(await res.json());
     }, [])
 
-    //create array with category and id
+    //create array with category and id 
     const category = categorys.map(category => {
         const container = { };
         container ['id'] = category.id_categorys; //get id_category
@@ -17,7 +17,7 @@ const SelectItems = () =>{
         return container;
     });
     
-    //removing duplicates values from container
+    //removing duplicates values from container 
     const category_simple = category.map(JSON.stringify).reverse()
 	    .filter(function(item, index, arr){ return arr.indexOf(item, index + 1) === -1; })
         .reverse().map(JSON.parse);
@@ -38,7 +38,7 @@ const SelectItems = () =>{
     function showCategories(event) {
         let item = event.target.id;
         for (let i = 0; i < prod.length; i++) {
-            if (item == prod[i].id) {
+            if (item === prod[i].id) {
                     prod[i].style.display = "block";
             }
                 else{
@@ -62,7 +62,7 @@ const SelectItems = () =>{
                 Todas as categorias
                 <span className="badge badge-success badge-pill">{category.length}</span>
             </button>
-            {/** map for show categorys from category_simple */}
+            {/** map for show categorys from category_simple  renderizando*/}
             {   category_simple.map ( category => {
                     return (
                         <button key={category.id} className="dropdown-item list-group-item d-flex justify-content-between align-items-center"

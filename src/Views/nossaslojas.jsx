@@ -1,10 +1,10 @@
 import React from 'react';
 import Stores from '../components/Stores/index';
 
-export default class StoresPage extends React.Component {
-    render(){
+const StoresPage = () => {
         return (
             <Stores/>
         );
-    }
 }
+
+export default StoresPage;
