@@ -1,9 +1,13 @@
-import logo from '../assets/favicon_soccershop.png';
+import { useSelector } from 'react-redux';
+import loginActios from '../store/actions/login';
 import { Link } from 'react-router-dom';
-import CartButton from './Cart/CartButton';
+import CartButton from '../Cart/CartButton';
+import Cadastro from '../Login/Cadastro';
+import Login from '../Login/Login';
+import logo from '../../assets/favicon_soccershop.png';
 
-const Header = () => {
-        return (
+const Header = () => {   
+    return (
             <>
              <header>
                     <nav className="navbar navbar-expand-lg navbar-light bg-success">
@@ -40,8 +44,11 @@ const Header = () => {
                                 <li className="nav-item">
                                     <Link className="nav-link text-white" to="/contato">Contato</Link>
                                 </li>
-                                <li>
-                                    <CartButton/>
+                                <li className="nav-item" id="loggedIn">
+                                    <Login/>
+                                </li>
+                                <li className="nav-item" id="isLogout" hidden>
+                                    <Cadastro/>
                                 </li>
                             </ul>
                         </div>

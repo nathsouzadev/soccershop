@@ -38,13 +38,10 @@ const SelectItems = () =>{
     function showCategories(event) {
         let item = event.target.id;
         for (let i = 0; i < prod.length; i++) {
-            if (item === prod[i].id) {
-                    prod[i].style.display = "block";
+            item === prod[i].id ?
+            prod[i].style.display = "block" :
+            prod[i].style.display = "none";
             }
-                else{
-                    prod[i].style.display = "none";
-            }
-        }
     }
     
     function allCategories() {

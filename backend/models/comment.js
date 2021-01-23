@@ -29,7 +29,8 @@ Comment.delete = (id, result) => {
     const sql = "DELETE FROM comments WHERE id = ?";
     Conn.query(sql, id, (error, res) => {
         if(error){
-            return error;
+            result(null, error);
+            return;
         }
         if (res.affectedRows == 0){
             result({kind: "not_found"}, null);
