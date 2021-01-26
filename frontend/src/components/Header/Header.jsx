@@ -44,11 +44,8 @@ const Header = () => {
                                 <li className="nav-item">
                                     <Link className="nav-link text-white" to="/contato">Contato</Link>
                                 </li>
-                                <li className="nav-item" id="loggedIn">
-                                    <Login/>
-                                </li>
-                                <li className="nav-item" id="isLogout" hidden>
-                                    <Cadastro/>
+                                <li className="nav-item" id="isLogout">
+                                    <CartButton/>
                                 </li>
                             </ul>
                         </div>
