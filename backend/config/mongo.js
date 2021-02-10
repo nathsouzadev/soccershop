@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-function connection() {
+function mongoConn() {
     mongoose.connect("mongodb://localhost/soccershop",
         { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
@@ -11,4 +11,4 @@ function connection() {
     })
 }
 
-module.exports = connection();
+module.exports = mongoConn();

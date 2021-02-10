@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import sent from '../../assets/sent.svg';
-const MsgCard = lazy(() => import('./MsgCard'))
+const MsgCard = lazy(() => import('./MsgCard'));
 
 const SentMsg = () => {
     

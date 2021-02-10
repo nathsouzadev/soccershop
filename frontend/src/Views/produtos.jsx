@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ProductsList from '../components/Products/ProductsList';
-import SelectItems from '../components/Products/Select';
+const SelectItems = lazy(() => import('../components/Products/Select'));
 
 const ProductsPage = () =>{
         return (
@@ -20,7 +20,13 @@ const ProductsPage = () =>{
                     </div>
                     <div className="col-lg-9 mt-1">
                         <div className="row">
-                            <ProductsList/>
+                            <Suspense fallback={
+                                <div className="spinner-border text-success" role="status">
+                                    <span className="sr-only">Loading...</span>
+                                </div>
+                            }>
+                                <ProductsList/>
+                            </Suspense>
                         </div>
                     </div>
                 </main>  

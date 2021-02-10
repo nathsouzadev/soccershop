@@ -11,13 +11,11 @@ Soccershop é um projeto de e-commerce desenvolvido durante o curso na RecodePro
 - React Router
 
 **Backend**
-- NodeJS com MySQL ou NodeJS com MongoDB
+- NodeJS com MySQL (/products) e MongoDB (/comment)
 - Express
 - CORS
 - BodyParser
 
 **Portas**
 Frontend: localhost:3000 (npm start)
-
-Backend: escolher o servidor na pasta server ou backend.
-localhost:5000 (npm start)
+Backend: localhost:5000 (npm start)

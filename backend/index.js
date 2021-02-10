@@ -1,4 +1,5 @@
 const express = require('express'),
+    mongo = require('./config/mongo'),
     server = express(),
     cors = require('cors');
     

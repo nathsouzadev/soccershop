@@ -1,7 +1,14 @@
 module.exports = server => {
-    const comment = require('../controllers/comment');
+    Comments = require('../models/comment');
 
-    server.post('/comments', comment.create);
-    server.get('/comments', comment.findAll);
-    server.delete('/comments/:commentId', comment.delete);
-};
+    server.post('/comment', async (req, res) => {
+        const { author, message } = req.body;
+        const result = await Comments.create({ author, message });
+        res.send(result)
+    })
+
+    server.get('/comment', async (req, res) => {
+        const result = await Comments.find();
+        res.send(result)
+    })
+}    
