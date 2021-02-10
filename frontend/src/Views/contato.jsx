@@ -1,3 +1,4 @@
+import React from 'react';
 import SentMsg from '../components/Contact/Msg';
 import ButtonContact from '../components/Contact/contact';
 import phone from '../assets/phone.svg';

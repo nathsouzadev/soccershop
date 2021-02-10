@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import sent from '../../assets/sent.svg';
-import MsgCard from './MsgCard';
+const MsgCard = lazy(() => import('./MsgCard'))
 
 const SentMsg = () => {
     
@@ -12,16 +12,16 @@ const SentMsg = () => {
     const [message, setMessage] = useState('');
 
     useEffect(async () => {
-        const url = "http://localhost:5000/comments";
+        const url = "http://localhost:5000/comment";
         const res = await fetch(url);
         setMsg(await res.json());
     }, [render])
     
     function newMsg(event) {
         event.preventDefault();
-        let form = {name_msg: name,
-                    msg: message};
-        const url = "http://localhost:5000/comments";
+        let form = {author: name,
+                    message: message};
+        const url = "http://localhost:5000/comment";
         fetch(url, { 
             method: "POST",
             headers: {
@@ -29,7 +29,6 @@ const SentMsg = () => {
             },
             body: JSON.stringify(form)
         }).then((res) => res.json()).then((data) => {
-            console.log(data)
             if(data.error){
                 setError(data.error)
 
@@ -83,15 +82,21 @@ const SentMsg = () => {
                     </button>
                 </div> }
             </div>
-            <div className="mt-1">
-                {msg.map(row => {
-                    return(
-                        <span key={row.id}>
-                            <MsgCard id={row.id} author={row.name_msg} date={row.date}>{row.msg}</MsgCard>
-                        </span>
-                    )
-                })}
-            </div>
+            <Suspense fallback={
+                            <div className="spinner-border text-success" role="status">
+                                <span className="sr-only">Loading...</span>
+                            </div>
+                        }>
+                <div className="mt-1">
+                    {msg.map(row => {
+                        return(
+                            <span key={row._id}>
+                                <MsgCard id={row._id} author={row.author} date={row.date}>{row.message}</MsgCard>
+                            </span> 
+                        )
+                    })}
+                </div>
+            </Suspense>
         </>
     )
 }

@@ -1,3 +1,4 @@
+import React from 'react';
 import logo from '../assets/favicon_soccershop.png';
 import { Link } from 'react-router-dom';
 import CartButton from './Cart/CartButton';

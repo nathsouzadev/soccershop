@@ -1,3 +1,4 @@
+import React from 'react';
 import ProductsList from '../components/Products/ProductsList';
 import SelectItems from '../components/Products/Select';
 

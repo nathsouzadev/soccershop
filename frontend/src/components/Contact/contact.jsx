@@ -1,3 +1,5 @@
+import React from 'react';
+
 const ButtonContact = (props) => {
     return(
         <div className="col-sm-12 col-xl-6 mt-1">

@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Store = (props) => {
     return(
         <div className="card col-sm-12 col-lg-3 m-1">
